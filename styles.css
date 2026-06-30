@@ -1,9 +1,128 @@
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    padding:50px;
+:root {
+    --primary: #0B3A5B;
+    --accent: #2FA6FF;
+    --bg: #F7F9FC;
+    --text: #1C1C1C;
+    --card: #ffffff;
 }
 
-h1{
-    color:#006A8E;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* HERO */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: white;
+    color: var(--primary);
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--primary);
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* TEXT INSIDE CARDS */
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+/* CONTACT BOX */
+#contact .card {
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #eef6ff);
+}
+
+/* FOOTER */
+.footer {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 34px;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
 }
