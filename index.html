@@ -1,16 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PropEye Property Inspections</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropEye Property Inspections</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    background: #F7F9FC;
+    color: #1C1C1C;
+}
+
+header {
+    background: linear-gradient(135deg, #0B3A5B, #2FA6FF);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: white;
+    color: #0B3A5B;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    backdrop-filter: blur(6px);
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.footer {
+    background: #0B3A5B;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>Welcome to PropEye</h1>
+<header>
+    <h1>PropEye Property Inspections</h1>
+    <p>Professional, detailed and reliable property inspection reports you can trust.</p>
+    <a class="btn" href="#contact">Book an Inspection</a>
+</header>
 
-<p>Professional Property Inspection Services.</p>
+<section>
+    <h2>Our Services</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Pre-Purchase Inspections</h3>
+            <p>Know the true condition before you buy.</p>
+        </div>
+        <div class="card">
+            <h3>Rental Inspections</h3>
+            <p>Detailed reports for landlords and tenants.</p>
+        </div>
+        <div class="card">
+            <h3>Snag Lists</h3>
+            <p>Identify defects in new builds before handover.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Why Choose PropEye</h2>
+    <div class="grid">
+        <div class="card">✔ Detailed photographic reports</div>
+        <div class="card">✔ Fast turnaround time</div>
+        <div class="card">✔ Clear, easy-to-read findings</div>
+        <div class="card">✔ Trusted inspection methodology</div>
+    </div>
+</section>
+
+<section>
+    <h2>How It Works</h2>
+    <div class="grid">
+        <div class="card">1. Book your inspection</div>
+        <div class="card">2. We inspect the property</div>
+        <div class="card">3. You receive a full report</div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Book an Inspection</h2>
+    <div class="card">
+        <p>Email us directly:</p>
+        <h3>info@propeye.co.za</h3>
+        <p>Or call us for urgent inspections</p>
+    </div>
+</section>
+
+<div class="footer">
+    © 2026 PropEye Property Inspections
+</div>
 
 </body>
 </html>
