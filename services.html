@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PropEye · Detailed Services</title>
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <!-- Google Fonts + Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ----- reset & base (exactly as reference) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #0B3A66;
+      --olive: #8A9B2A;
+      --white: #FFFFFF;
+      --light-grey: #F5F7F8;
+      --text-dark: #1E2A34;
+      --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.07);
+      --radius: 20px;
+      --transition: all 0.25s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- navigation (same as index) ----- */
+    .top-nav {
+      background: white;
+      border-bottom: 1px solid #e6eaef;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .nav-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px 24px;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo i {
+      color: var(--olive);
+      margin-right: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: var(--olive);
+      color: var(--navy);
+    }
+
+    .nav-links a.active {
+      border-bottom-color: var(--olive);
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ----- buttons (reference) ----- */
+    .btn-primary {
+      display: inline-block;
+      background: var(--olive);
+      color: white;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: var(--transition);
+      border: none;
+      box-shadow: 0 8px 18px rgba(138, 155, 42, 0.25);
+      letter-spacing: -0.3px;
+    }
+
+    .btn-primary i {
+      margin-right: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #7a8b22;
+      transform: scale(1.01);
+      box-shadow: 0 12px 24px rgba(138, 155, 42, 0.35);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      transition: var(--transition);
+      backdrop-filter: blur(2px);
+    }
+
+    .btn-outline i {
+      margin-right: 8px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+
+    /* ----- hero (services page) with two images ----- */
+    .hero-services {
+      background: linear-gradient(135deg, var(--navy) 0%, #124a7a 100%);
+      color: white;
+      padding: 50px 0 60px;
+    }
+
+    .hero-services .hero-image-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .hero-services .hero-image-item {
+      flex: 0 1 280px;
+      max-width: 340px;
+    }
+
+    .hero-services .hero-image-item img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      display: block;
+      background: #d9e2ec;
+    }
+
+    .hero-services .hero-text-block {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-services .hero-text-block h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+
+    .hero-services .hero-text-block p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    /* ----- section & cards (reference styles) ----- */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      color: #4a5c6b;
+      max-width: 600px;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card i {
+      font-size: 2.2rem;
+      color: var(--olive);
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .card p {
+      color: #2e3f4d;
+      font-size: 0.98rem;
+    }
+
+    .card-icon-bg {
+      background: #f0f5eb;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .card-icon-bg i {
+      font-size: 1.8rem;
+      margin: 0;
+      color: var(--olive);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-item {
+      background: var(--light-grey);
+      padding: 24px 18px;
+      border-radius: 18px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .feature-item i {
+      color: var(--olive);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .step-circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .step-number {
+      background: var(--navy);
+      color: white;
+      width: 54px;
+      height: 54px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-card {
+      background: var(--light-grey);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-details i {
+      width: 28px;
+      color: var(--olive);
+    }
+
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 32px 0;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* price tag micro */
+    .price-badge {
+      display: inline-block;
+      background: var(--olive);
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 4px 14px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .hero-services .hero-text-block h1 { font-size: 2rem; }
+      .section-title { font-size: 2rem; }
+      .contact-card { flex-direction: column; align-items: flex-start; }
+      .nav-inner { flex-direction: column; align-items: center; }
+    }
+
+    /* ----- Estate Agency Solutions styles ----- */
+    .solutions-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    }
+
+    .solutions-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+    text-align: center;
+    }
+
+    .solutions-subtitle {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--olive);
+    text-align: center;
+    margin-bottom: 16px;
+    }
+
+    .solutions-heading {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 40px;
+    }
+
+    .solutions-text-block {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 30px;
+    }
+
+    .solutions-text-block p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    }
+
+    .solutions-text-block p:last-child {
+    margin-bottom: 0;
+    }
+
+    .solutions-section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    }
+
+    .solutions-section-title-center {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    }
+
+    .solutions-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    }
+
+    .solutions-checklist {
+    background: white;
+    padding: 30px 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 40px;
+    }
+
+    .solutions-checklist-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    }
+
+    .solutions-checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 30px;
+    }
+
+    .solutions-checklist-item {
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    }
+
+    .solutions-checklist-item .check {
+    color: var(--olive);
+    font-weight: 700;
+    }
+
+    .solutions-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+    }
+
+    .solutions-benefit-card {
+    background: white;
+    padding: 28px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    }
+
+    .solutions-benefit-card .icon-circle {
+    background: var(--olive);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    }
+
+    .solutions-benefit-card .icon-circle i {
+    color: white;
+    font-size: 1.4rem;
+    }
+
+    .solutions-benefit-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    }
+
+    .solutions-benefit-card p {
+    color: #2e3f4d;
+    line-height: 1.6;
+    }
+
+    .solutions-experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+    }
+
+    .solutions-experience-card {
+    background: white;
+    padding: 28px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--olive);
+    }
+
+    .solutions-experience-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    }
+
+    .solutions-experience-card p {
+    color: #2e3f4d;
+    line-height: 1.6;
+    }
+
+    .solutions-promise {
+    background: var(--navy);
+    padding: 40px;
+    border-radius: var(--radius);
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    }
+
+    .solutions-promise h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    }
+
+    .solutions-promise p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+    }
+
+    .solutions-promise .brand {
+    margin-top: 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--olive);
+    }
+
+    .solutions-promise .tagline {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-top: 6px;
+    font-style: italic;
+    }
+
+    .solutions-full-width {
+    background: var(--light-grey);
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- minimal navigation (services page) -->
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <div class="nav-logo">
+        <i class="fas fa-home"></i> PropEye
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#">Documents</a>
+        <a href="#">About</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO for services (two images + heading) -->
+  <header class="hero-services">
+    <div class="container">
+      <div class="hero-image-row">
+        <div class="hero-image-item">
+          <img src="images/inspections.jpg" alt="Detailed property inspection" />
+        </div>
+        <div class="hero-image-item">
+          <img src="images/logo.png" alt="PropEye logo" />
+        </div>
+      </div>
+      <div class="hero-text-block">
+        <h1>Our inspection services</h1>
+        <p>Independent, thorough, and tailored for the rental industry.</p>
+        <p style="font-size:1rem; opacity:0.7; margin-top:6px;">From move‑in to routine checks — we cover it all.</p>
+      </div>
+    </div>
+
+    
+  </header>
+
+  <!-- ESTATE AGENCY SOLUTIONS -->
+<section class="solutions-full-width">
+  <div class="container">
+    <div class="solutions-wrapper">
+      <h2 class="solutions-title">Estate Agency Solutions</h2>
+      <h3 class="solutions-subtitle">Your Trusted Property Inspection Partner</h3>
+      <h4 class="solutions-heading">Focus on Growing Your Business. We'll Handle the Inspections.</h4>
+
+      <div class="solutions-text-block">
+        <p>Property inspections are one of the most important responsibilities in property management—but they're also one of the most time-consuming.</p>
+        <p>Traveling to properties, conducting detailed inspections, taking photographs, testing fixtures, compiling reports, and following up with clients can take hours out of your team's day.</p>
+        <p>At PropEye, we become an extension of your business by taking care of the entire inspection process professionally and independently.</p>
+        <p>This allows your property managers to focus on what they do best—serving clients, managing properties, securing new mandates, and growing your portfolio.</p>
+      </div>
+
+      <h3 class="solutions-section-title">Comprehensive Property Inspections</h3>
+      <p class="solutions-description">
+        Our inspections are designed to provide a complete picture of the property's condition.
+        Unlike a basic checklist inspection, we conduct a thorough visual and operational assessment.
+      </p>
+
+      <div class="solutions-checklist">
+        <p class="solutions-checklist-title">Our inspections include:</p>
+        <div class="solutions-checklist-grid">
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Interior & exterior inspections</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Move-in and move-out inspections</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Routine property inspections</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Holiday home inspections</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Vacant property inspections</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Testing accessible light switches and light fittings</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Testing accessible plug points</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Checking accessible built-in fixtures and appliances (where applicable)</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Operating taps and flushing toilets</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Inspecting windows, doors and locks</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Recording water and electricity meter readings</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Identifying visible leaks, damp, mould and maintenance concerns</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Comprehensive photographic documentation</div>
+          <div class="solutions-checklist-item"><span class="check">✔️</span> Professional digital inspection reports</div>
+        </div>
+      </div>
+
+      <h3 class="solutions-section-title-center">Why Partner With PropEye?</h3>
+
+      <div class="solutions-benefits-grid">
+        <div class="solutions-benefit-card">
+          <div class="icon-circle"><i class="fas fa-clock"></i></div>
+          <h4>Save Time</h4>
+          <p>Stop spending valuable hours travelling between properties and completing inspection reports.</p>
+        </div>
+        <div class="solutions-benefit-card">
+          <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+          <h4>Increase Productivity</h4>
+          <p>Allow your property managers to spend more time with clients, landlords and tenants instead of completing lengthy inspections.</p>
+        </div>
+        <div class="solutions-benefit-card">
+          <div class="icon-circle"><i class="fas fa-balance-scale"></i></div>
+          <h4>Independent & Professional</h4>
+          <p>As an independent third party, we provide unbiased, factual inspections supported by detailed photographic evidence.</p>
+        </div>
+        <div class="solutions-benefit-card">
+          <div class="icon-circle"><i class="fas fa-handshake"></i></div>
+          <h4>Reduce Disputes</h4>
+          <p>Our comprehensive reports create transparency and help reduce disagreements between landlords and tenants.</p>
+        </div>
+        <div class="solutions-benefit-card">
+          <div class="icon-circle"><i class="fas fa-calendar-alt"></i></div>
+          <h4>Flexible Support</h4>
+          <p>Whether your team needs assistance during busy periods, staff leave or ongoing support, we're here when you need us.</p>
+        </div>
+      </div>
+
+      <h3 class="solutions-section-title-center">A Better Experience for Everyone</h3>
+
+      <div class="solutions-experience-grid">
+        <div class="solutions-experience-card">
+          <h4>For Estate Agencies</h4>
+          <p>A reliable inspection partner that saves time and improves efficiency.</p>
+        </div>
+        <div class="solutions-experience-card">
+          <h4>For Landlords</h4>
+          <p>Professional documentation that helps protect one of their biggest investments.</p>
+        </div>
+        <div class="solutions-experience-card">
+          <h4>For Tenants</h4>
+          <p>Fair and transparent inspections supported by detailed evidence.</p>
+        </div>
+      </div>
+
+      <div class="solutions-promise">
+        <h3>Our Promise</h3>
+        <p>We don't replace your property managers—we strengthen your team. Every inspection is completed with professionalism, attention to detail and integrity because we believe every property deserves a thorough inspection.</p>
+        <div class="brand">PropEye Property Inspections</div>
+        <div class="tagline">The Inspection Your Property Can't Afford to Miss.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- SERVICES DETAIL (expanded) -->
+  <section id="services-detail">
+    <div class="container">
+      <h2 class="section-title">Every inspection, in detail</h2>
+      <p class="section-sub">We provide comprehensive reporting with clear photography, condition grading, and actionable insights.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon-bg"><i class="fas fa-door-open"></i></div>
+          <h3>Incoming Inspections</h3>
+          <p>Comprehensive move‑in reports with detailed notes, high‑resolution photos, and condition grading for every room. Perfect for landlords and tenants.</p>
+          <span class="price-badge">from R850</span>
+        </div>
+        <div class="card">
+          <div class="card-icon-bg"><i class="fas fa-sign-out-alt"></i></div>
+          <h3>Outgoing Inspections</h3>
+          <p>Objective move‑out assessments that protect both parties. Clear documentation of wear &amp; tear, damage, and cleaning status.</p>
+          <span class="price-badge">from R850</span>
+        </div>
+        <div class="card">
+          <div class="card-icon-bg"><i class="fas fa-clipboard-list"></i></div>
+          <h3>Condition Reports</h3>
+          <p>Full digital reports with annotated images, missing items, and a summary of the property's overall condition. Ideal for agencies.</p>
+          <span class="price-badge">from R750</span>
+        </div>
+        <div class="card">
+          <div class="card-icon-bg"><i class="fas fa-camera"></i></div>
+          <h3>Photo Documentation</h3>
+          <p>Every corner documented — walls, windows, cupboards, gardens, garages, and exteriors. Visual proof for dispute resolution.</p>
+          <span class="price-badge">from R650</span>
+        </div>
+        <div class="card">
+          <div class="card-icon-bg"><i class="fas fa-home"></i></div>
+          <h3>Rental Property Assessments</h3>
+          <p>Full walkthroughs: kitchens, bathrooms, living areas, gates, and outdoor spaces. We flag maintenance issues early.</p>
+          <span class="price-badge">from R950</span>
+        </div>
+        <div class="card">
+          <div class="card-icon-bg"><i class="fas fa-calendar-check"></i></div>
+          <h3>Routine Property Checks</h3>
+          <p>Weekly or monthly visits to read water/electricity meters, inspect overall condition, and catch small issues before they escalate.</p>
+          <span class="price-badge">from R450/visit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ON / EXTRA SERVICES (feature style) -->
+  <section style="background: var(--light-grey);">
+    <div class="container">
+      <h2 class="section-title text-center">Additional services</h2>
+      <p class="section-sub text-center mx-auto">We also offer these specialised inspections.</p>
+      <div class="grid-4" style="margin-top:10px;">
+        <div class="card" style="padding:24px 18px; text-align:center;">
+          <i class="fas fa-tree" style="font-size:2.2rem;"></i>
+          <h3 style="font-size:1.1rem;">Garden &amp; exterior</h3>
+          <p style="font-size:0.9rem;">Fencing, gates, irrigation, and outdoor structures.</p>
+        </div>
+        <div class="card" style="padding:24px 18px; text-align:center;">
+          <i class="fas fa-water" style="font-size:2.2rem;"></i>
+          <h3 style="font-size:1.1rem;">Pool &amp; safety</h3>
+          <p style="font-size:0.9rem;">Pool condition, fencing, and safety compliance.</p>
+        </div>
+        <div class="card" style="padding:24px 18px; text-align:center;">
+          <i class="fas fa-bolt" style="font-size:2.2rem;"></i>
+          <h3 style="font-size:1.1rem;">Electrical checks</h3>
+          <p style="font-size:0.9rem;">Basic electrical safety, lights, and appliance testing.</p>
+        </div>
+        <div class="card" style="padding:24px 18px; text-align:center;">
+          <i class="fas fa-drafting-compass" style="font-size:2.2rem;"></i>
+          <h3 style="font-size:1.1rem;">Floor plan &amp; measurements</h3>
+          <p style="font-size:0.9rem;">Accurate floor plans and room dimensions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (kept from reference) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title text-center">How it works</h2>
+      <p class="section-sub text-center mx-auto">Four simple steps to a stress‑free rental inspection.</p>
+      <div class="grid-4">
+        <div class="step-circle"><div class="step-number">1</div><h4>Book</h4><p>Schedule your inspection online or call us.</p></div>
+        <div class="step-circle"><div class="step-number">2</div><h4>Inspect</h4><p>Our inspector documents every detail.</p></div>
+        <div class="step-circle"><div class="step-number">3</div><h4>Receive Report</h4><p>Digital report with photos &amp; findings.</p></div>
+        <div class="step-circle"><div class="step-number">4</div><h4>Move In / Move Out</h4><p>Confidence for landlords, tenants, and agents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (reference) -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's get started</h2>
+      <p class="section-sub">Reach out to book your inspection or request a quote.</p>
+      <div class="contact-card">
+        <div>
+          <div class="contact-details"><i class="fas fa-envelope"></i> <strong>info@propeye.co.za</strong></div>
+          <div class="contact-details"><i class="fas fa-phone-alt"></i> +27 63 251 9530</div>
+          <div class="contact-details"><i class="fab fa-whatsapp"></i> WhatsApp: +27 63 251 9530</div>
+          <div class="contact-details"><i class="far fa-clock"></i> Mon–Sat 9am – 6pm</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+      <span>© 2026 PropEye · Property Inspections</span>
+      <div>
+        <a href="https://www.facebook.com/share/14cxHEFWzvn/"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
