@@ -444,6 +444,61 @@
         max-width: 100%;
       }
     }
+    .carousel{
+      width:900px;
+      height:80px;
+      overflow:hidden;
+      position:relative;
+
+      /* Fade edges */
+      -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0,0,0,.2) 10%,
+          rgba(0,0,0,1) 25%,
+          rgba(0,0,0,1) 75%,
+          rgba(0,0,0,.2) 90%,
+          transparent 100%
+      );
+
+      mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0,0,0,.2) 10%,
+          rgba(0,0,0,1) 25%,
+          rgba(0,0,0,1) 75%,
+          rgba(0,0,0,.2) 90%,
+          transparent 100%
+      );
+  }
+
+  .track{
+      display:flex;
+      width:max-content;
+      animation: scroll 40s linear infinite;
+  }
+
+  .item{
+      white-space:nowrap;
+      margin-right:120px;
+      font-size:1rem;
+      font-weight:600;
+      color:white;
+      letter-spacing:1px;
+  }
+
+  .item span{
+      color:#8A9130;
+  }
+
+  @keyframes scroll{
+      from{
+          transform:translateX(75%);
+      }
+      to{
+          transform:translateX(-100%);
+      }
+  }
   </style>
 </head>
 <body>
@@ -497,11 +552,27 @@
         </div>
       </div>
       <div class="hero-text-block">
-        <p>Independent, detailed rental inspections for agencies, landlords, and tenants. Move in & move out with confidence.</p>
+        <div class="carousel">
+          <div class="track">
+            <div class="item">Independent detailed rental inspections for agencies, landlords, and tenants</div>
+            <div class="item">Move in & move out with confidence</div>
+          </div>
+        </div>
+        <!-- <p>Independent, detailed rental inspections for agencies, landlords, and tenants. Move in & move out with confidence.</p> -->
       <div class="hero-buttons">
         <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book an Inspection</a>
         <a href="services.html" class="btn-outline"><i class="fas fa-file-signature"></i> Our Services</a>
       </div>
+      <!-- <div class="carousel">
+    <div class="track">
+        <div class="item">✓ <span>Incoming</span> Property Inspections</div>
+        <div class="item">✓ Detailed Photo Reports</div>
+        <div class="item">✓ Exit Condition Assessments</div>
+        <div class="item">✓ Monthly Property Checks</div>
+        <div class="item">✓ Water & Electricity Meter Readings</div>
+        <div class="item">✓ Peace of Mind for Landlords</div>
+    </div>
+</div> -->
       </div>
     </div>
   </header>
