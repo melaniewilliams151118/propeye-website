@@ -69,14 +69,27 @@
     }
 
     .nav-logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--navy);
-      letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--navy);
+        letter-spacing: -0.5px;
     }
-    .nav-logo i {
-      color: var(--olive);
-      margin-right: 6px;
+
+    .logo-img {
+        width: 42px;      /* Adjust to suit */
+        height: auto;
+        display: block;
+    }
+
+    .eye {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--olive);
+    letter-spacing: -0.5px;
     }
 
     .nav-links {
@@ -172,8 +185,8 @@
     }
 
     .hero-pricing .hero-image-item {
-      flex: 0 1 280px;
-      max-width: 340px;
+      flex: 0 1 45%;
+      max-width: 900px;
     }
 
     .hero-pricing .hero-image-item img {
@@ -389,6 +402,24 @@
       color: var(--navy);
     }
 
+    .pricing-note-large {
+      background: var(--light-grey);
+      padding: 24px 32px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--olive);
+      margin: 30px 0;
+    }
+
+    .pricing-note-large p {
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .pricing-note-large strong {
+      color: var(--navy);
+    }
+
     .promise-banner {
       background: var(--navy);
       padding: 40px;
@@ -472,16 +503,17 @@
   <!-- Navigation -->
   <nav class="top-nav">
     <div class="container nav-inner">
-      <div class="nav-logo">
-        <i class="fas fa-home"></i> PropEye
-      </div>
+       <div class="nav-logo">
+    <img src="images/min_logo.png" alt="PropEye Logo" class="logo-img">
+    <span>Prop<span class="eye">Eye</span></span>
+    </div>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="pricing.html" class="active">Pricing</a>
-        <a href="#">Documents</a>
+        <!-- <a href="#">Documents</a>
         <a href="#">About</a>
-        <a href="#">FAQ</a>
+        <a href="#">FAQ</a> -->
       </div>
     </div>
   </nav>
@@ -490,237 +522,234 @@
   <header class="hero-pricing">
     <div class="container">
         <div class="hero-text-block">
-        <h1>Pricing</h1>
+        <h1>PropEye Pricing</h1>
         <p>Transparent Pricing. Professional Service.</p>
         <p style="font-size:1rem; opacity:0.7; margin-top:6px;">Every inspection includes a professional digital report with photographs and maintenance observations.</p>
       </div>
       <div class="hero-image-row">
         <div class="hero-image-item">
-          <img src="images/inspections.jpg" alt="Property inspection" />
-        </div>
-        <div class="hero-image-item">
-          <img src="images/logo.png" alt="PropEye logo" />
+          <img src="images/pricing.png" alt="Property inspection" />
         </div>
       </div>
     </div>
   </header>
 
   <!-- Move-In & Move-Out Inspections -->
+
   <section>
-    <div class="container">
-      <h2 class="section-title">Move-In &amp; Move-Out Inspections</h2>
-      <div class="pricing-card" style="max-width: 500px; margin-bottom: 20px;">
-        <div class="price" style="font-size:1.8rem; margin:8px 0 4px;">R200 <small style="font-weight:400;">call-out</small></div>
-        <div class="price" style="font-size:1.8rem; margin:4px 0 16px;">R350 <small style="font-weight:400;">per hour</small></div>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> Comprehensive room-by-room inspection</li>
-          <li><i class="fas fa-check-circle"></i> Property condition report</li>
-          <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-          <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-          <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-          <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-          <li><i class="fas fa-check-circle"></i> Detailed photographic documentation</li>
-          <li><i class="fas fa-check-circle"></i> Digital inspection report within 24 hours</li>
-        </ul>
+  <div class="container">
+    <h2 class="section-title">Key Holding &amp; Property Care Packages</h2>
+    <div class="pricing-grid">
+    <div class="pricing-card">
+
+      <h3 style="text-align:center; margin-bottom:8px;">Essential</h3>
+
+      <div class="price" style="font-size:1.8rem; margin:8px 0 4px;">
+        R850 <small style="font-weight:400;">per month</small>
       </div>
+
+      <p style="text-align:center; margin-bottom:20px;">
+        Perfect for holiday homeowners and landlords who need regular peace of mind.
+      </p>
+
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Secure key holding</li>
+        <li><i class="fas fa-check-circle"></i> 2 scheduled property inspections per month</li>
+        <li><i class="fas fa-check-circle"></i> Property security checks</li>
+        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
+        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
+        <li><i class="fas fa-check-circle"></i> Running taps and flushing toilets</li>
+        <li><i class="fas fa-check-circle"></i> Checking for visible leaks, damp and mould</li>
+        <li><i class="fas fa-check-circle"></i> Monitoring for visible pest activity</li>
+        <li><i class="fas fa-check-circle"></i> Collection of flyers and junk mail</li>
+        <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
+        <li><i class="fas fa-check-circle"></i> Detailed photographic report after every inspection</li>
+        <li><i class="fas fa-check-circle"></i> One contractor access visit per month</li>
+      </ul>
+
     </div>
-  </section>
+    <div class="pricing-card">
 
-  <!-- Routine Rental Inspections -->
-  <section style="background: var(--light-grey);">
-    <div class="container">
-      <h2 class="section-title">Routine Rental Inspections</h2>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Apartment</div>
-          <div class="price">R450</div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Interior and exterior visual inspection</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Check</li>
-            <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-            <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Visible maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic report</li>
-            <li><i class="fas fa-check-circle"></i> Digital inspection report within 24 hours</li>
-          </ul>
-        </div>
-        <div class="pricing-card">
-          <div class="plan-name">Townhouse</div>
-          <div class="price">R550</div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Interior and exterior visual inspection</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Check</li>
-            <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-            <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Visible maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic report</li>
-            <li><i class="fas fa-check-circle"></i> Digital inspection report within 24 hours</li>
-          </ul>
-        </div>
-        <div class="pricing-card">
-          <div class="plan-name">House (Up to 3 Bedrooms)</div>
-          <div class="price">R650</div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Interior and exterior visual inspection</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Check</li>
-            <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-            <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Visible maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic report</li>
-            <li><i class="fas fa-check-circle"></i> Digital inspection report within 24 hours</li>
-          </ul>
-        </div>
-        <div class="pricing-card featured">
-          <div class="plan-name">House (4+ Bedrooms)</div>
-          <div class="price">From R850</div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Interior and exterior visual inspection</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Check</li>
-            <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-            <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Visible maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic report</li>
-            <li><i class="fas fa-check-circle"></i> Digital inspection report within 24 hours</li>
-          </ul>
-        </div>
+      <h3 style="text-align:center; margin-bottom:8px;">Premium</h3>
+
+      <div class="price" style="font-size:1.8rem; margin:8px 0 4px;">
+        R1,950 <small style="font-weight:400;">per month</small>
       </div>
 
-      <div class="pricing-note">
-        <p><strong>Important Notice:</strong> Routine rental inspections are visual, non-invasive inspections only. The inspection is limited to what is visible and reasonably accessible at the time of the visit. Items such as furniture, tenants' belongings, appliances, and décor may restrict access to certain areas. The report reflects only what can be seen during the inspection, and we cannot report on hidden, obstructed, or inaccessible defects.</p>
-      </div>
+      <p style="text-align:center; margin-bottom:20px;">
+        Ideal for absentee owners, holiday homes, and high-value properties requiring regular monitoring.
+      </p>
+
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Secure key holding</li>
+        <li><i class="fas fa-check-circle"></i> 4 scheduled property inspections per month (weekly)</li>
+        <li><i class="fas fa-check-circle"></i> Property security checks</li>
+        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
+        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
+        <li><i class="fas fa-check-circle"></i> Running taps and flushing toilets</li>
+        <li><i class="fas fa-check-circle"></i> Checking for visible leaks, damp and mould</li>
+        <li><i class="fas fa-check-circle"></i> Monitoring for visible pest activity</li>
+        <li><i class="fas fa-check-circle"></i> Collection of flyers and junk mail</li>
+        <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
+        <li><i class="fas fa-check-circle"></i> Detailed photographic report after every inspection</li>
+        <li><i class="fas fa-check-circle"></i> One contractor access visit per month</li>
+        <li><i class="fas fa-check-circle"></i> Priority response for urgent property concerns</li>
+      </ul>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Monthly Property Care Plans -->
   <section>
-    <div class="container">
-      <h2 class="section-title">Monthly Property Care Plans</h2>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Essential Care</div>
-          <div class="price">R695 <small>per month</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> One scheduled inspection</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Check</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-            <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photo report</li>
-          </ul>
-        </div>
-        <div class="pricing-card featured">
-          <div class="plan-name">Home Care</div>
-          <div class="price">R1,250 <small>per month</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Two scheduled inspections</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Checks</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-            <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic reports</li>
-          </ul>
-        </div>
-        <div class="pricing-card">
-          <div class="plan-name">Premium Care</div>
-          <div class="price">R1,950 <small>per month</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Four scheduled inspections (weekly)</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Checks</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-            <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic reports</li>
-            <li><i class="fas fa-check-circle"></i> Priority scheduling</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="container">
+     <h2 class="section-title">Move-In &amp; Move-Out Inspections Packages</h2>
+        <h3 class="section-sub">PropEye Property Inspections provides professional, independent rental inspections for move-in and move-out properties. Our detailed inspections include comprehensive photographic evidence and professionally prepared reports to protect the landlord's investment, safeguard the tenant's deposit, and ensure a fair, transparent process for all parties.</h3>
+        <div class="pricing-grid">
+    <div class="pricing-card">
 
-  <!-- Holiday Home Care Plans -->
-  <section style="background: var(--light-grey);">
-    <div class="container">
-      <h2 class="section-title">Holiday Home Care Plans</h2>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Holiday Home Essential</div>
-          <div class="price">R750 <small>per month</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> One scheduled inspection</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Check</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-            <li><i class="fas fa-check-circle"></i> Open windows to air the property (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Run taps and flush toilets (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Report visible maintenance concerns</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic report</li>
-          </ul>
-        </div>
-        <div class="pricing-card featured">
-          <div class="plan-name">Holiday Home Premium</div>
-          <div class="price">R1,850 <small>per month</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Four scheduled inspections (weekly)</li>
-            <li><i class="fas fa-check-circle"></i> Property Security Checks</li>
-            <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-            <li><i class="fas fa-check-circle"></i> Open windows to air the property (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Run taps and flush toilets (if requested)</li>
-            <li><i class="fas fa-check-circle"></i> Check refrigerator/freezer (if switched on)</li>
-            <li><i class="fas fa-check-circle"></i> Report visible maintenance concerns</li>
-            <li><i class="fas fa-check-circle"></i> One contractor access/supervision visit (up to 1 hour per month)</li>
-            <li><i class="fas fa-check-circle"></i> Detailed photographic report after every visit</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h3 style="text-align:center; margin-bottom:8px;">Move-In Inspection</h3>
 
-  <!-- Additional Services -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Additional Services</h2>
-      <div class="pricing-list">
-        <div class="item"><span class="name">Property Security Check</span><span class="cost">R300</span></div>
-        <div class="item"><span class="name">Water &amp; Electricity Meter Readings</span><span class="cost">R200</span></div>
-        <div class="item"><span class="name">Emergency Property Inspection</span><span class="cost">R400</span></div>
-        <div class="item"><span class="name">After-hours Emergency Property Inspection</span><span class="cost">R600</span></div>
-        <div class="item"><span class="name">Contractor Access &amp; Supervision</span><span class="cost">R350/hour</span></div>
-        <div class="item"><span class="name">Additional Property Inspection</span><span class="cost">R400</span></div>
+      <div class="price" style="font-size:1.8rem; margin:8px 0 16px;">
+        From R650
       </div>
-    </div>
-  </section>
 
-  <!-- Travel Fees -->
-  <section style="background: var(--light-grey);">
-    <div class="container">
-      <h2 class="section-title">Travel Fees</h2>
-      <div class="pricing-list">
-        <div class="item"><span class="name">Up to 10 km</span><span class="cost" style="color: var(--olive);">Included</span></div>
-        <div class="item"><span class="name">10–25 km</span><span class="cost">R100</span></div>
-        <div class="item"><span class="name">25–50 km</span><span class="cost">R250</span></div>
-        <div class="item"><span class="name">Over 50 km</span><span class="cost">Quoted separately</span></div>
-      </div>
-    </div>
-  </section>
+      <p style="text-align:center; margin-bottom:20px;">
+        To accurately document the condition of the property before occupation begins.
+      </p>
 
-  <!-- Payment Terms -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Payment Terms</h2>
-      <div class="pricing-list">
-        <div class="item"><span class="name">Once-off inspections</span><span class="cost">Payment before or on the day of the inspection</span></div>
-        <div class="item"><span class="name">Monthly Property Care Plans</span><span class="cost">Payable in advance each month</span></div>
-        <div class="item"><span class="name">Estate agencies, body corporates and property managers</span><span class="cost">Custom pricing and volume discounts available</span></div>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Comprehensive room-by-room inspection</li>
+        <li><i class="fas fa-check-circle"></i> Detailed condition report</li>
+        <li><i class="fas fa-check-circle"></i> Photographic documentation</li>
+        <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
+        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
+        <li><i class="fas fa-check-circle"></i> Inspection of cupboards, cabinets and built-in fixtures</li>
+        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
+        <li><i class="fas fa-check-circle"></i> Checking for visible leaks, damp and mould</li>
+        <li><i class="fas fa-check-circle"></i> Identification of existing damage and maintenance concerns</li>
+        <li><i class="fas fa-check-circle"></i> Detailed digital inspection report</li>
+        <li><i class="fas fa-check-circle"></i> Report delivered within 24–48 hours</li>
+      </ul>
+
+    </div>
+     <div class="pricing-card">
+       <h3 style="text-align:center; margin-bottom:8px;">Move-Out Inspection</h3>
+
+      <div class="price" style="font-size:1.8rem; margin:8px 0 16px;">
+        From R650
+      </div>
+
+      <p style="text-align:center; margin-bottom:20px;">
+        To accurately document the property's condition at the end of the occupation.
+      </p>
+
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Comprehensive room-by-room inspection</li>
+        <li><i class="fas fa-check-circle"></i> Comparison against the move-in inspection (Requires a PropEye move-in inspection)</li>
+        <li><i class="fas fa-check-circle"></i> Photographic documentation</li>
+        <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
+        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
+        <li><i class="fas fa-check-circle"></i> Inspection of cupboards, cabinets and built-in fixtures</li>
+        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
+        <li><i class="fas fa-check-circle"></i> Identification of damages beyond normal wear and tear</li>
+        <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
+        <li><i class="fas fa-check-circle"></i> Detailed digital inspection report</li>
+        <li><i class="fas fa-check-circle"></i> Report delivered within 24–48 hours</li>
+      </ul>
+
+    </div>
+    </div>
+    <div class="pricing-note-large">
+        <p>
+            <strong>Larger Properties &amp; Additional Inspection Time:</strong>
+            For larger properties or inspections requiring additional time, an additional fee of
+            <strong>R350 per hour</strong> applies. This may include large family homes, luxury properties,
+            multiple outbuildings, or inspections requiring extensive photographic reporting.
+        </p>
+    </div>
+  </div>
+</section>
+
+<!-- Optional Add-On Services -->
+<section style="background: var(--light-grey);">
+  <div class="container">
+    <h2 class="section-title">Optional Add-On Services</h2>
+    <div class="pricing-list">
+      <div class="item"><span class="name">Additional Inspection</span><span class="cost">R400</span></div>
+      <div class="item"><span class="name">Contractor Supervision</span><span class="cost">R350/hour</span></div>
+      <div class="item"><span class="name">Emergency Property Inspection</span><span class="cost">R400</span></div>
+      <div class="item"><span class="name">After-hours Emergency Inspection</span><span class="cost">R600</span></div>
+      <div class="item"><span class="name">Holiday Home Cleaning</span><span class="cost">Quoted separately</span></div>
+      <div class="item"><span class="name">Move-out Cleaning</span><span class="cost">Quoted separately</span></div>
+      <div class="item"><span class="name">Custom Property Care Packages</span><span class="cost">Quoted separately</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Terms -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Payment Terms</h2>
+    <div class="pricing-list">
+      <div class="item">
+        <span class="name">Once-off Inspections</span>
+        <span class="cost">Payable before or on the day of the inspection</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Monthly Property Care &amp; Key Holding Packages</span>
+        <span class="cost">Payable in advance on or before the 1st of each month</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Inspection Reports</span>
+        <span class="cost">Released once payment has been received in full</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Additional Services</span>
+        <span class="cost">Invoiced separately when requested outside an agreed package</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Emergency &amp; After-hours Services</span>
+        <span class="cost">May require payment in advance</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Accepted Payment Methods</span>
+        <span class="cost">EFT or Cash (proof of payment may be required)</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Late Payments</span>
+        <span class="cost">Ongoing services may be suspended until the account is up to date</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Estate Agencies &amp; Approved Business Clients</span>
+        <span class="cost">Monthly account facilities available, subject to approval</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Quotation Validity</span>
+        <span class="cost">30 days unless otherwise stated</span>
+      </div>
+
+      <div class="item">
+        <span class="name">Pricing</span>
+        <span class="cost">All prices are quoted in South African Rand (ZAR) and are subject to change with reasonable notice</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Promise Banner -->
   <section style="background: var(--light-grey); padding-top: 0;">
     <div class="container">
       <div class="promise-banner">
         <div class="brand">PropEye Property Inspections</div>
-        <div class="tagline">The Inspection Your Property Can't Afford to Miss.</div>
+        <div class="tagline">Professional Eyes. Trusted Reports. Complete Peace of Mind.</div>
       </div>
     </div>
   </section>

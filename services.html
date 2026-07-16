@@ -69,14 +69,27 @@
     }
 
     .nav-logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--navy);
-      letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--navy);
+        letter-spacing: -0.5px;
     }
-    .nav-logo i {
-      color: var(--olive);
-      margin-right: 6px;
+
+    .logo-img {
+        width: 42px;      /* Adjust to suit */
+        height: auto;
+        display: block;
+    }
+
+    .eye {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--olive);
+    letter-spacing: -0.5px;
     }
 
     .nav-links {
@@ -617,16 +630,17 @@
   <!-- minimal navigation (services page) -->
   <nav class="top-nav">
     <div class="container nav-inner">
-      <div class="nav-logo">
-        <i class="fas fa-home"></i> PropEye
-      </div>
+    <div class="nav-logo">
+    <img src="images/min_logo.png" alt="PropEye Logo" class="logo-img">
+    <span>Prop<span class="eye">Eye</span></span>
+    </div>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html" class="active">Services</a>
         <a href="pricing.html">Pricing</a>
-        <a href="#">Documents</a>
+        <!-- <a href="#">Documents</a>
         <a href="#">About</a>
-        <a href="#">FAQ</a>
+        <a href="#">FAQ</a> -->
       </div>
     </div>
   </nav>
@@ -635,16 +649,18 @@
   <header class="hero-services">
     <div class="container">
         <div class="hero-text-block">
-        <h1>Our inspection services</h1>
-        <p>Independent, thorough, and tailored for the rental industry.</p>
-        <p style="font-size:1rem; opacity:0.7; margin-top:6px;">From move‑in to routine checks — we cover it all.</p>
+        <h1>PropEye Inspection Services</h1>
+        <p>Independent, thorough inspections for rental properties, vacation homes, and absentee owners.</p>
       </div>
       <div class="hero-image-row">
         <div class="hero-image-item">
-          <img src="images/inspections.jpg" alt="Detailed property inspection" />
+          <img src="images/inspect1.png" alt="Detailed property inspection 1" />
         </div>
         <div class="hero-image-item">
-          <img src="images/logo.png" alt="PropEye logo" />
+          <img src="images/inspect2.png" alt="Detailed property inspection 2" />
+        </div>
+        <div class="hero-image-item">
+          <img src="images/inspect3.png" alt="Detailed property inspection 3" />
         </div>
       </div>
     </div>
@@ -656,6 +672,25 @@
 <section class="solutions-full-width">
   <div class="container">
     <div class="solutions-wrapper">
+
+            <h3 class="solutions-section-title-center">A Better Experience for Everyone</h3>
+
+      <div class="solutions-experience-grid">
+        <div class="solutions-experience-card">
+          <h4>For Estate Agencies</h4>
+          <p>A reliable inspection partner that saves time and improves efficiency.</p>
+        </div>
+        <div class="solutions-experience-card">
+          <h4>For Landlords</h4>
+          <p>Professional documentation that helps protect one of their biggest investments.</p>
+        </div>
+        <div class="solutions-experience-card">
+          <h4>For Tenants</h4>
+          <p>Fair and transparent inspections supported by detailed evidence.</p>
+        </div>
+      </div>
+
+
       <h2 class="solutions-title">Estate Agency Solutions</h2>
       <h3 class="solutions-subtitle">Your Trusted Property Inspection Partner</h3>
       <h4 class="solutions-heading">Focus on Growing Your Business. We'll Handle the Inspections.</h4>
@@ -723,28 +758,13 @@
         </div>
       </div>
 
-      <h3 class="solutions-section-title-center">A Better Experience for Everyone</h3>
 
-      <div class="solutions-experience-grid">
-        <div class="solutions-experience-card">
-          <h4>For Estate Agencies</h4>
-          <p>A reliable inspection partner that saves time and improves efficiency.</p>
-        </div>
-        <div class="solutions-experience-card">
-          <h4>For Landlords</h4>
-          <p>Professional documentation that helps protect one of their biggest investments.</p>
-        </div>
-        <div class="solutions-experience-card">
-          <h4>For Tenants</h4>
-          <p>Fair and transparent inspections supported by detailed evidence.</p>
-        </div>
-      </div>
 
       <div class="solutions-promise">
         <h3>Our Promise</h3>
         <p>We don't replace your property managers—we strengthen your team. Every inspection is completed with professionalism, attention to detail and integrity because we believe every property deserves a thorough inspection.</p>
         <div class="brand">PropEye Property Inspections</div>
-        <div class="tagline">The Inspection Your Property Can't Afford to Miss.</div>
+        <div class="tagline">Professional Eyes. Trusted Reports. Complete Peace of Mind.</div>
       </div>
     </div>
   </div>
