@@ -69,14 +69,27 @@
     }
 
     .nav-logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--navy);
-      letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--navy);
+        letter-spacing: -0.5px;
     }
-    .nav-logo i {
-      color: var(--olive);
-      margin-right: 6px;
+
+    .logo-img {
+        width: 42px;      /* Adjust to suit */
+        height: auto;
+        display: block;
+    }
+
+    .eye {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--olive);
+    letter-spacing: -0.5px;
     }
 
     .nav-links {
@@ -171,20 +184,19 @@
       margin-bottom: 30px;
     }
 
-    .hero .hero-image-item {
-      flex: 0 1 280px;
-      max-width: 340px;
-    }
+.hero .hero-image-item {
+    flex: 1 1 45%;
+    max-width: 900px;
+}
 
-    .hero .hero-image-item img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      display: block;
-      background: #d9e2ec;
-    }
+.hero .hero-image-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    display: block;
+}
 
     .hero .hero-text-block {
       text-align: center;
@@ -434,10 +446,10 @@
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 804px) {
       .hero-image-item {
         flex: 1 1 100%;
-        max-width: 260px;
+        max-width: 400px;
         min-width: 140px;
       }
       .hero-image-row {
@@ -507,49 +519,30 @@
 <nav class="top-nav">
   <div class="container nav-inner">
     <div class="nav-logo">
-      <i class="fas fa-home"></i> PropEye
+    <img src="images/min_logo.png" alt="PropEye Logo" class="logo-img">
+    <span>Prop<span class="eye">Eye</span></span>
     </div>
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
-      <a href="#">Documents</a>
+      <!-- <a href="#">Documents</a>
       <a href="#">About</a>
-      <a href="#">FAQ</a>
+      <a href="#">FAQ</a> -->
     </div>
   </div>
 </nav>
 
-<!-- HERO: two images side by side, same size + p + buttons -->
-<!-- <header class="hero">
-  <div class="container hero-grid">
-    <div class="hero-image-row">
-      <div class="hero-image-item logo">
-        <img src="images/logo.png" alt="Home Inspect Logo" />
-      </div>
-      <div class="hero-image-item">
-        <img src="images/inspections.jpg" alt="Property inspector reviewing rental home" />
-      </div>
-    </div>
-    <div class="hero-text-block">
-      <p>Independent, detailed rental inspections for agencies, landlords, and tenants. Move in & move out with confidence.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book an Inspection</a>
-        <a href="services.html" class="btn-outline"><i class="fas fa-file-signature"></i> Our Services</a>
-      </div>
-    </div>
-  </div>
-</header> -->
 
   <header class="hero">
     <div class="container">
       <div class="hero-image-row">
         <div class="hero-image-item">
-          <img src="images/inspections.jpg" alt="Detailed property inspection" />
+          <img src="images/index.png" alt="Detailed property inspection" />
         </div>
-        <div class="hero-image-item">
+        <!-- <div class="hero-image-item">
           <img src="images/logo.png" alt="PropEye logo" />
-        </div>
+        </div> -->
       </div>
       <div class="hero-text-block">
         <div class="carousel">
@@ -563,16 +556,6 @@
         <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book an Inspection</a>
         <a href="services.html" class="btn-outline"><i class="fas fa-file-signature"></i> Our Services</a>
       </div>
-      <!-- <div class="carousel">
-    <div class="track">
-        <div class="item">✓ <span>Incoming</span> Property Inspections</div>
-        <div class="item">✓ Detailed Photo Reports</div>
-        <div class="item">✓ Exit Condition Assessments</div>
-        <div class="item">✓ Monthly Property Checks</div>
-        <div class="item">✓ Water & Electricity Meter Readings</div>
-        <div class="item">✓ Peace of Mind for Landlords</div>
-    </div>
-</div> -->
       </div>
     </div>
   </header>
@@ -581,13 +564,11 @@
 <section id="services">
   <div class="container">
     <h2 class="section-title">Our inspection services</h2>
-    <p class="section-sub">Comprehensive reports for incoming, outgoing, and ongoing rental property assessments.</p>
+    <p class="section-sub">Comprehensive reports for incoming, outgoing, and routine property inspections, including rental properties, holiday homes, and properties owned by absentee homeowners.</p>
     <div class="grid-3">
-      <div class="card"><div class="card-icon-bg"><i class="fas fa-door-open"></i></div><h3>Incoming Inspections</h3><p>Thorough move-in reports with photos, notes, and condition grading.</p></div>
-      <div class="card"><div class="card-icon-bg"><i class="fas fa-sign-out-alt"></i></div><h3>Outgoing Inspections</h3><p>Detailed move-out assessments to protect landlords and tenants alike.</p></div>
+      <div class="card"><div class="card-icon-bg"><i class="fas fa-door-open"></i></div><h3>Incoming and Outgoing Inspections</h3><p>Thorough move-in and move-out reports with photos, notes, and condition grading.</p></div>
       <div class="card"><div class="card-icon-bg"><i class="fas fa-clipboard-list"></i></div><h3>Condition Reports</h3><p>Digital reports with high-res images, missing items, and wear &amp; tear.</p></div>
       <div class="card"><div class="card-icon-bg"><i class="fas fa-camera"></i></div><h3>Photo Documentation</h3><p>Every corner documented — walls, windows, cupboards, gardens &amp; more.</p></div>
-      <div class="card"><div class="card-icon-bg"><i class="fas fa-home"></i></div><h3>Rental Property Assessments</h3><p>Full property walkthroughs: kitchens, bathrooms, exteriors, gates, garages.</p></div>
       <div class="card"><div class="card-icon-bg"><i class="fas fa-calendar-check"></i></div><h3>Routine Property Checks</h3><p>Weekly or monthly visits to check water and electricity meters, overall property condition, and identify maintenance issues early.</p></div>
     </div>
   </div>
@@ -596,8 +577,8 @@
 <!-- WHY CHOOSE US -->
 <section style="background: var(--light-grey);">
   <div class="container">
-    <h2 class="section-title text-center">Why choose Home Inspect</h2>
-    <p class="section-sub text-center mx-auto">Independent, thorough, and built for the rental industry.</p>
+    <h2 class="section-title text-center">Why choose PropEye</h2>
+    <p class="section-sub text-center mx-auto">Professional property inspections you can trust—whether you own a rental, a vacation home, or a property from afar.</p>
     <div class="feature-grid">
       <div class="feature-item"><i class="fas fa-balance-scale"></i> Independent Reports</div>
       <div class="feature-item"><i class="fas fa-file-alt"></i> Detailed Documentation</div>
@@ -613,12 +594,31 @@
 <section>
   <div class="container">
     <h2 class="section-title text-center">How it works</h2>
-    <p class="section-sub text-center mx-auto">Four simple steps to a stress‑free rental inspection.</p>
+    <p class="section-sub text-center mx-auto">Four simple steps to a stress‑free inspection.</p>
     <div class="grid-4">
       <div class="step-circle"><div class="step-number">1</div><h4>Book</h4><p>Schedule your inspection online or call us.</p></div>
       <div class="step-circle"><div class="step-number">2</div><h4>Inspect</h4><p>Our inspector documents every detail.</p></div>
       <div class="step-circle"><div class="step-number">3</div><h4>Receive Report</h4><p>Digital report with photos &amp; findings.</p></div>
       <div class="step-circle"><div class="step-number">4</div><h4>Move In / Move Out</h4><p>Confidence for landlords, tenants, and agents.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE -->
+<section style="background: var(--light-grey);">
+  <div class="container">
+    <h2 class="section-title text-center">Important Notice</h2>
+    <p class="section-sub text-center mx-auto">
+      PropEye conducts visual and operational inspections only. Our reports reflect the visible condition and basic operation of accessible fixtures, fittings, and appliances at the time of the inspection.
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-item"><i class="fas fa-eye"></i> Visual inspections only</div>
+      <div class="feature-item"><i class="fas fa-tools"></i> Basic operational checks</div>
+      <div class="feature-item"><i class="fas fa-bolt"></i> No electrical inspections</div>
+      <div class="feature-item"><i class="fas fa-faucet"></i> No plumbing inspections</div>
+      <div class="feature-item"><i class="fas fa-fire"></i> No gas inspections</div>
+      <div class="feature-item"><i class="fas fa-hard-hat"></i> No structural, compliance or specialist technical inspections</div>
     </div>
   </div>
 </section>
