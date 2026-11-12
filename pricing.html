@@ -1,784 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PropEye · Pricing</title>
-  <link rel="icon" href="images/icon.png" type="image/png">
-  <!-- Google Fonts + Font Awesome Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    /* ----- reset & base ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --navy: #0B3A66;
-      --olive: #8A9B2A;
-      --white: #FFFFFF;
-      --light-grey: #F5F7F8;
-      --text-dark: #1E2A34;
-      --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.04);
-      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.07);
-      --radius: 20px;
-      --transition: all 0.25s ease;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ----- navigation ----- */
-    .top-nav {
-      background: white;
-      border-bottom: 1px solid #e6eaef;
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(4px);
-      background: rgba(255,255,255,0.92);
-    }
-
-    .nav-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px 24px;
-    }
-
-    .nav-logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: var(--navy);
-        letter-spacing: -0.5px;
-    }
-
-    .logo-img {
-        width: 42px;      /* Adjust to suit */
-        height: auto;
-        display: block;
-    }
-
-    .eye {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--olive);
-    letter-spacing: -0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 20px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--text-dark);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      border-bottom-color: var(--olive);
-      color: var(--navy);
-    }
-
-    .nav-links a.active {
-      border-bottom-color: var(--olive);
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    /* ----- buttons ----- */
-    .btn-primary {
-      display: inline-block;
-      background: var(--olive);
-      color: white;
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 60px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: var(--transition);
-      border: none;
-      box-shadow: 0 8px 18px rgba(138, 155, 42, 0.25);
-      letter-spacing: -0.3px;
-    }
-
-    .btn-primary i {
-      margin-right: 8px;
-    }
-
-    .btn-primary:hover {
-      background: #7a8b22;
-      transform: scale(1.01);
-      box-shadow: 0 12px 24px rgba(138, 155, 42, 0.35);
-    }
-
-    .btn-outline {
-      display: inline-block;
-      background: transparent;
-      color: white;
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 60px;
-      text-decoration: none;
-      font-size: 1rem;
-      border: 1.5px solid rgba(255,255,255,0.5);
-      transition: var(--transition);
-      backdrop-filter: blur(2px);
-    }
-
-    .btn-outline i {
-      margin-right: 8px;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: white;
-    }
-
-    /* ----- hero (pricing page) ----- */
-    .hero-pricing {
-      background: linear-gradient(135deg, var(--navy) 0%, #124a7a 100%);
-      color: white;
-      padding: 50px 0 60px;
-    }
-
-    .hero-pricing .hero-image-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .hero-pricing .hero-image-item {
-      flex: 0 1 45%;
-      max-width: 900px;
-    }
-
-    .hero-pricing .hero-image-item img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      display: block;
-      background: #d9e2ec;
-    }
-
-    .hero-pricing .hero-text-block {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .hero-pricing .hero-text-block h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: -0.8px;
-      margin-bottom: 12px;
-    }
-
-    .hero-pricing .hero-text-block p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 10px;
-    }
-
-    /* ----- Pricing section styles ----- */
-    section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.8px;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .section-sub {
-      color: #4a5c6b;
-      max-width: 600px;
-      margin-bottom: 40px;
-      font-size: 1.1rem;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Pricing cards */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-      margin-bottom: 40px;
-    }
-
-    .pricing-card {
-      background: white;
-      padding: 32px 28px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      border: 2px solid var(--olive);
-      transition: var(--transition);
-      height: 100%;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .pricing-card.featured {
-      border: 2px solid var(--olive);
-      position: relative;
-    }
-
-    .pricing-card.featured::before {
-      content: "Most Popular";
-      position: absolute;
-      top: -12px;
-      right: 24px;
-      background: var(--olive);
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 16px;
-      border-radius: 30px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .pricing-card .price {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 16px 0 8px;
-    }
-
-    .pricing-card .price small {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #4a5c6b;
-    }
-
-    .pricing-card .plan-name {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .pricing-card .plan-sub {
-      color: #4a5c6b;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 24px;
-    }
-
-    .pricing-card ul li {
-      padding: 6px 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      line-height: 1.5;
-    }
-
-    .pricing-card ul li i {
-      color: var(--olive);
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-
-    .pricing-card .btn-primary {
-      width: 100%;
-      text-align: center;
-    }
-
-    /* Pricing list (for additional services) */
-    .pricing-list {
-      background: white;
-      padding: 32px 40px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 30px;
-    }
-
-    .pricing-list h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-
-    .pricing-list .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f2f4;
-    }
-
-    .pricing-list .item:last-child {
-      border-bottom: none;
-    }
-
-    .pricing-list .item .name {
-      font-weight: 500;
-      color: var(--text-dark);
-    }
-
-    .pricing-list .item .cost {
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .pricing-list .item .cost .free {
-      color: var(--olive);
-    }
-
-    .pricing-note {
-      background: var(--light-grey);
-      padding: 24px 32px;
-      border-radius: var(--radius);
-      border-left: 4px solid var(--olive);
-      margin: 30px 0;
-    }
-
-    .pricing-note p {
-      color: var(--text-dark);
-      line-height: 1.7;
-      font-size: 0.98rem;
-    }
-
-    .pricing-note strong {
-      color: var(--navy);
-    }
-
-    .pricing-note-large {
-      background: var(--light-grey);
-      padding: 24px 32px;
-      border-radius: var(--radius);
-      border-left: 4px solid var(--olive);
-      margin: 30px 0;
-    }
-
-    .pricing-note-large p {
-      color: var(--text-dark);
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-
-    .pricing-note-large strong {
-      color: var(--navy);
-    }
-
-    .promise-banner {
-      background: var(--navy);
-      padding: 40px;
-      border-radius: var(--radius);
-      color: white;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .promise-banner .brand {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--olive);
-    }
-
-    .promise-banner .tagline {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      margin-top: 6px;
-      font-style: italic;
-    }
-
-    .contact-card {
-      background: var(--light-grey);
-      border-radius: var(--radius);
-      padding: 40px 36px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .contact-details i {
-      width: 28px;
-      color: var(--olive);
-    }
-
-    .footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.7);
-      padding: 32px 0;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .footer a {
-      color: white;
-      text-decoration: none;
-      margin: 0 12px;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 700px) {
-      .hero-pricing .hero-text-block h1 { font-size: 2rem; }
-      .section-title { font-size: 2rem; }
-      .contact-card { flex-direction: column; align-items: flex-start; }
-      .nav-inner { flex-direction: column; align-items: center; }
-      .pricing-list .item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-      .pricing-card .price {
-        font-size: 2.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <meta name="description" content="Transparent pricing for PropEye property inspections and property care packages.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://propeye.co.za/pricing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PropEye Property Inspections">
+  <meta property="og:title" content="PropEye · Pricing">
+  <meta property="og:description" content="Transparent pricing for PropEye property inspections and property care packages.">
+  <meta property="og:url" content="https://propeye.co.za/pricing.html">
+  <meta property="og:image" content="https://propeye.co.za/images/og-propeye.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0A2A4A">
+  <link rel="icon" href="images/favicon-64.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="image" href="images/pricing-hero-900.webp" imagesrcset="images/pricing-hero-900.webp 900w, images/pricing-hero-1600.webp 1600w" imagesizes="(max-width: 1024px) 90vw, 560px">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Navigation -->
-  <nav class="top-nav">
-    <div class="container nav-inner">
-       <div class="nav-logo">
-    <img src="images/min_logo.png" alt="PropEye Logo" class="logo-img">
-    <span>Prop<span class="eye">Eye</span></span>
-    </div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html" class="active">Pricing</a>
-        <!-- <a href="#">Documents</a>
-        <a href="#">About</a>
-        <a href="#">FAQ</a> -->
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero-pricing">
-    <div class="container">
-        <div class="hero-text-block">
-        <h1>PropEye Pricing</h1>
-        <p>Transparent Pricing. Professional Service.</p>
-        <p style="font-size:1rem; opacity:0.7; margin-top:6px;">Every inspection includes a professional digital report with photographs and maintenance observations.</p>
-      </div>
-      <div class="hero-image-row">
-        <div class="hero-image-item">
-          <img src="images/pricing.png" alt="Property inspection" />
-        </div>
-      </div>
+  <header class="site-header" data-site-header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="PropEye Property Inspections — home">
+        <img class="brand-logo" src="images/logo-160.webp" srcset="images/logo-160.webp 160w, images/logo-320.webp 320w" sizes="48px" width="160" height="102" alt="PropEye Logo">
+        <span>
+          <span class="brand-name">Prop<span class="eye">Eye</span></span>
+          <span class="brand-sub">Property Inspections</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Main navigation" data-site-nav>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="pricing.html" aria-current="page">Pricing</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Book an Inspection</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Move-In & Move-Out Inspections -->
-
-  <section>
-  <div class="container">
-    <h2 class="section-title">Key Holding &amp; Property Care Packages</h2>
-    <div class="pricing-grid">
-    <div class="pricing-card">
-
-      <h3 style="text-align:center; margin-bottom:8px;">Essential</h3>
-
-      <div class="price" style="font-size:1.8rem; margin:8px 0 4px;">
-        R850 <small style="font-weight:400;">per month</small>
-      </div>
-
-      <p style="text-align:center; margin-bottom:20px;">
-        Perfect for holiday homeowners and landlords who need regular peace of mind.
-      </p>
-
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Secure key holding</li>
-        <li><i class="fas fa-check-circle"></i> 2 scheduled property inspections per month</li>
-        <li><i class="fas fa-check-circle"></i> Property security checks</li>
-        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-        <li><i class="fas fa-check-circle"></i> Running taps and flushing toilets</li>
-        <li><i class="fas fa-check-circle"></i> Checking for visible leaks, damp and mould</li>
-        <li><i class="fas fa-check-circle"></i> Monitoring for visible pest activity</li>
-        <li><i class="fas fa-check-circle"></i> Collection of flyers and junk mail</li>
-        <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-        <li><i class="fas fa-check-circle"></i> Detailed photographic report after every inspection</li>
-        <li><i class="fas fa-check-circle"></i> One contractor access visit per month</li>
-      </ul>
-
-    </div>
-    <div class="pricing-card">
-
-      <h3 style="text-align:center; margin-bottom:8px;">Premium</h3>
-
-      <div class="price" style="font-size:1.8rem; margin:8px 0 4px;">
-        R1,950 <small style="font-weight:400;">per month</small>
-      </div>
-
-      <p style="text-align:center; margin-bottom:20px;">
-        Ideal for absentee owners, holiday homes, and high-value properties requiring regular monitoring.
-      </p>
-
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Secure key holding</li>
-        <li><i class="fas fa-check-circle"></i> 4 scheduled property inspections per month (weekly)</li>
-        <li><i class="fas fa-check-circle"></i> Property security checks</li>
-        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-        <li><i class="fas fa-check-circle"></i> Running taps and flushing toilets</li>
-        <li><i class="fas fa-check-circle"></i> Checking for visible leaks, damp and mould</li>
-        <li><i class="fas fa-check-circle"></i> Monitoring for visible pest activity</li>
-        <li><i class="fas fa-check-circle"></i> Collection of flyers and junk mail</li>
-        <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-        <li><i class="fas fa-check-circle"></i> Detailed photographic report after every inspection</li>
-        <li><i class="fas fa-check-circle"></i> One contractor access visit per month</li>
-        <li><i class="fas fa-check-circle"></i> Priority response for urgent property concerns</li>
-      </ul>
-
-    </div>
-  </div>
-</section>
-
-  <section>
-  <div class="container">
-     <h2 class="section-title">Move-In &amp; Move-Out Inspections Packages</h2>
-        <h3 class="section-sub">PropEye Property Inspections provides professional, independent rental inspections for move-in and move-out properties. Our detailed inspections include comprehensive photographic evidence and professionally prepared reports to protect the landlord's investment, safeguard the tenant's deposit, and ensure a fair, transparent process for all parties.</h3>
-        <div class="pricing-grid">
-    <div class="pricing-card">
-
-      <h3 style="text-align:center; margin-bottom:8px;">Move-In Inspection</h3>
-
-      <div class="price" style="font-size:1.8rem; margin:8px 0 16px;">
-        From R650
-      </div>
-
-      <p style="text-align:center; margin-bottom:20px;">
-        To accurately document the condition of the property before occupation begins.
-      </p>
-
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Comprehensive room-by-room inspection</li>
-        <li><i class="fas fa-check-circle"></i> Detailed condition report</li>
-        <li><i class="fas fa-check-circle"></i> Photographic documentation</li>
-        <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-        <li><i class="fas fa-check-circle"></i> Inspection of cupboards, cabinets and built-in fixtures</li>
-        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-        <li><i class="fas fa-check-circle"></i> Checking for visible leaks, damp and mould</li>
-        <li><i class="fas fa-check-circle"></i> Identification of existing damage and maintenance concerns</li>
-        <li><i class="fas fa-check-circle"></i> Detailed digital inspection report</li>
-        <li><i class="fas fa-check-circle"></i> Report delivered within 24–48 hours</li>
-      </ul>
-
-    </div>
-     <div class="pricing-card">
-       <h3 style="text-align:center; margin-bottom:8px;">Move-Out Inspection</h3>
-
-      <div class="price" style="font-size:1.8rem; margin:8px 0 16px;">
-        From R650
-      </div>
-
-      <p style="text-align:center; margin-bottom:20px;">
-        To accurately document the property's condition at the end of the occupation.
-      </p>
-
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Comprehensive room-by-room inspection</li>
-        <li><i class="fas fa-check-circle"></i> Comparison against the move-in inspection (Requires a PropEye move-in inspection)</li>
-        <li><i class="fas fa-check-circle"></i> Photographic documentation</li>
-        <li><i class="fas fa-check-circle"></i> Testing of accessible light switches and plug points</li>
-        <li><i class="fas fa-check-circle"></i> Inspection of doors, windows, locks and gates</li>
-        <li><i class="fas fa-check-circle"></i> Inspection of cupboards, cabinets and built-in fixtures</li>
-        <li><i class="fas fa-check-circle"></i> Water &amp; electricity meter readings</li>
-        <li><i class="fas fa-check-circle"></i> Identification of damages beyond normal wear and tear</li>
-        <li><i class="fas fa-check-circle"></i> Maintenance observations</li>
-        <li><i class="fas fa-check-circle"></i> Detailed digital inspection report</li>
-        <li><i class="fas fa-check-circle"></i> Report delivered within 24–48 hours</li>
-      </ul>
-
-    </div>
-    </div>
-    <div class="pricing-note-large">
-        <p>
-            <strong>Larger Properties &amp; Additional Inspection Time:</strong>
-            For larger properties or inspections requiring additional time, an additional fee of
-            <strong>R350 per hour</strong> applies. This may include large family homes, luxury properties,
-            multiple outbuildings, or inspections requiring extensive photographic reporting.
-        </p>
-    </div>
-  </div>
-</section>
-
-<!-- Optional Add-On Services -->
-<section style="background: var(--light-grey);">
-  <div class="container">
-    <h2 class="section-title">Optional Add-On Services</h2>
-    <div class="pricing-list">
-      <div class="item"><span class="name">Additional Inspection</span><span class="cost">R400</span></div>
-      <div class="item"><span class="name">Contractor Supervision</span><span class="cost">R350/hour</span></div>
-      <div class="item"><span class="name">Emergency Property Inspection</span><span class="cost">R400</span></div>
-      <div class="item"><span class="name">After-hours Emergency Inspection</span><span class="cost">R600</span></div>
-      <div class="item"><span class="name">Holiday Home Cleaning</span><span class="cost">Quoted separately</span></div>
-      <div class="item"><span class="name">Move-out Cleaning</span><span class="cost">Quoted separately</span></div>
-      <div class="item"><span class="name">Custom Property Care Packages</span><span class="cost">Quoted separately</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- Payment Terms -->
-<section>
-  <div class="container">
-    <h2 class="section-title">Payment Terms</h2>
-    <div class="pricing-list">
-      <div class="item">
-        <span class="name">Once-off Inspections</span>
-        <span class="cost">Payable before or on the day of the inspection</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Monthly Property Care &amp; Key Holding Packages</span>
-        <span class="cost">Payable in advance on or before the 1st of each month</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Inspection Reports</span>
-        <span class="cost">Released once payment has been received in full</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Additional Services</span>
-        <span class="cost">Invoiced separately when requested outside an agreed package</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Emergency &amp; After-hours Services</span>
-        <span class="cost">May require payment in advance</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Accepted Payment Methods</span>
-        <span class="cost">EFT or Cash (proof of payment may be required)</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Late Payments</span>
-        <span class="cost">Ongoing services may be suspended until the account is up to date</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Estate Agencies &amp; Approved Business Clients</span>
-        <span class="cost">Monthly account facilities available, subject to approval</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Quotation Validity</span>
-        <span class="cost">30 days unless otherwise stated</span>
-      </div>
-
-      <div class="item">
-        <span class="name">Pricing</span>
-        <span class="cost">All prices are quoted in South African Rand (ZAR) and are subject to change with reasonable notice</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Promise Banner -->
-  <section style="background: var(--light-grey); padding-top: 0;">
-    <div class="container">
-      <div class="promise-banner">
-        <div class="brand">PropEye Property Inspections</div>
-        <div class="tagline">Professional Eyes. Trusted Reports. Complete Peace of Mind.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Let's get started</h2>
-      <p class="section-sub">Reach out to book your inspection or request a quote.</p>
-      <div class="contact-card">
+  <main id="main">
+    <section class="page-hero">
+      <div class="container page-hero-grid">
         <div>
-          <div class="contact-details"><i class="fas fa-envelope"></i> <strong>info@propeye.co.za</strong></div>
-          <div class="contact-details"><i class="fas fa-phone-alt"></i> +27 63 251 9530</div>
-          <div class="contact-details"><i class="fab fa-whatsapp"></i> WhatsApp: +27 63 251 9530</div>
-          <div class="contact-details"><i class="far fa-clock"></i> Mon–Sat 9am – 6pm</div>
+          <p class="eyebrow on-dark">Clear, transparent pricing</p>
+          <h1 class="page-hero-title">PropEye Pricing</h1>
+          <p class="page-hero-lede">Transparent Pricing. Professional Service.</p>
+          <p class="page-hero-note">Every inspection includes a professional digital report with photographs and maintenance observations.</p>
+        </div>
+        <div class="page-hero-media">
+          <picture>
+            <source type="image/webp" srcset="images/pricing-hero-900.webp 900w, images/pricing-hero-1600.webp 1600w" sizes="(max-width: 1024px) 90vw, 560px">
+            <img src="images/pricing.png" alt="Property inspection" width="1600" height="874" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-      <span>© 2026 PropEye · Property Inspections</span>
-      <div>
-        <a href="https://www.facebook.com/share/14cxHEFWzvn/"><i class="fab fa-facebook-f"></i></a>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-copy">
+            <p class="eyebrow">Property care</p>
+            <h2 class="section-title">Key Holding &amp; Property Care Packages</h2>
+          </div>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Essential</h3>
+            <div class="price">R850 <small>per month</small></div>
+            <p class="price-note">Perfect for holiday homeowners and landlords who need regular peace of mind.</p>
+            <ul class="plan-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Secure key holding</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> 2 scheduled property inspections per month</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Property security checks</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Inspection of doors, windows, locks and gates</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Water &amp; electricity meter readings</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Running taps and flushing toilets</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Checking for visible leaks, damp and mould</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Monitoring for visible pest activity</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Collection of flyers and junk mail</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Maintenance observations</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Detailed photographic report after every inspection</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> One contractor access visit per month</li>
+            </ul>
+          </article>
+
+          <article class="price-card">
+            <h3>Premium</h3>
+            <div class="price">R1,950 <small>per month</small></div>
+            <p class="price-note">Ideal for absentee owners, holiday homes, and high-value properties requiring regular monitoring.</p>
+            <ul class="plan-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Secure key holding</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> 4 scheduled property inspections per month (weekly)</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Property security checks</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Inspection of doors, windows, locks and gates</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Water &amp; electricity meter readings</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Running taps and flushing toilets</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Checking for visible leaks, damp and mould</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Monitoring for visible pest activity</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Collection of flyers and junk mail</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Maintenance observations</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Detailed photographic report after every inspection</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> One contractor access visit per month</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Priority response for urgent property concerns</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <h2 class="section-title">Move-In &amp; Move-Out Inspections Packages</h2>
+        <p class="section-lede">PropEye Property Inspections provides professional, independent rental inspections for move-in and move-out properties. Our detailed inspections include comprehensive photographic evidence and professionally prepared reports to protect the landlord's investment, safeguard the tenant's deposit, and ensure a fair, transparent process for all parties.</p>
+        <div class="pricing-grid" style="margin-top:32px">
+          <article class="price-card">
+            <h3>Move-In Inspection</h3>
+            <div class="price">From R650</div>
+            <p class="price-note">To accurately document the condition of the property before occupation begins.</p>
+            <ul class="plan-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Comprehensive room-by-room inspection</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Detailed condition report</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Photographic documentation</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Testing of accessible light switches and plug points</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Inspection of doors, windows, locks and gates</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Inspection of cupboards, cabinets and built-in fixtures</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Water &amp; electricity meter readings</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Checking for visible leaks, damp and mould</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Identification of existing damage and maintenance concerns</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Detailed digital inspection report</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Report delivered within 24–48 hours</li>
+            </ul>
+          </article>
+
+          <article class="price-card">
+            <h3>Move-Out Inspection</h3>
+            <div class="price">From R650</div>
+            <p class="price-note">To accurately document the property's condition at the end of the occupation.</p>
+            <ul class="plan-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Comprehensive room-by-room inspection</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Comparison against the move-in inspection (Requires a PropEye move-in inspection)</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Photographic documentation</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Testing of accessible light switches and plug points</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Inspection of doors, windows, locks and gates</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Inspection of cupboards, cabinets and built-in fixtures</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Water &amp; electricity meter readings</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Identification of damages beyond normal wear and tear</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Maintenance observations</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Detailed digital inspection report</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-check"></use></svg> Report delivered within 24–48 hours</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="pricing-note">
+          <p><strong>Larger Properties &amp; Additional Inspection Time:</strong> For larger properties or inspections requiring additional time, an additional fee of <strong>R350 per hour</strong> applies. This may include large family homes, luxury properties, multiple outbuildings, or inspections requiring extensive photographic reporting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-copy">
+            <p class="eyebrow">Optional extras</p>
+            <h2 class="section-title">Optional Add-On Services</h2>
+          </div>
+        </div>
+        <div class="addon-list">
+          <div class="addon-row"><span class="addon-name">Additional Inspection</span><span class="addon-cost">R400</span></div>
+          <div class="addon-row"><span class="addon-name">Contractor Supervision</span><span class="addon-cost">R350/hour</span></div>
+          <div class="addon-row"><span class="addon-name">Emergency Property Inspection</span><span class="addon-cost">R400</span></div>
+          <div class="addon-row"><span class="addon-name">After-hours Emergency Inspection</span><span class="addon-cost">R600</span></div>
+          <div class="addon-row"><span class="addon-name">Holiday Home Cleaning</span><span class="addon-cost">Quoted separately</span></div>
+          <div class="addon-row"><span class="addon-name">Move-out Cleaning</span><span class="addon-cost">Quoted separately</span></div>
+          <div class="addon-row"><span class="addon-name">Custom Property Care Packages</span><span class="addon-cost">Quoted separately</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-copy">
+            <p class="eyebrow">Payment</p>
+            <h2 class="section-title">Payment Terms</h2>
+          </div>
+        </div>
+        <div class="terms-list">
+          <div class="term-row"><span class="term-name">Once-off Inspections</span><span class="term-value">Payable before or on the day of the inspection</span></div>
+          <div class="term-row"><span class="term-name">Monthly Property Care &amp; Key Holding Packages</span><span class="term-value">Payable in advance on or before the 1st of each month</span></div>
+          <div class="term-row"><span class="term-name">Inspection Reports</span><span class="term-value">Released once payment has been received in full</span></div>
+          <div class="term-row"><span class="term-name">Additional Services</span><span class="term-value">Invoiced separately when requested outside an agreed package</span></div>
+          <div class="term-row"><span class="term-name">Emergency &amp; After-hours Services</span><span class="term-value">May require payment in advance</span></div>
+          <div class="term-row"><span class="term-name">Accepted Payment Methods</span><span class="term-value">EFT or Cash (proof of payment may be required)</span></div>
+          <div class="term-row"><span class="term-name">Late Payments</span><span class="term-value">Ongoing services may be suspended until the account is up to date</span></div>
+          <div class="term-row"><span class="term-name">Estate Agencies &amp; Approved Business Clients</span><span class="term-value">Monthly account facilities available, subject to approval</span></div>
+          <div class="term-row"><span class="term-name">Quotation Validity</span><span class="term-value">30 days unless otherwise stated</span></div>
+          <div class="term-row"><span class="term-name">Pricing</span><span class="term-value">All prices are quoted in South African Rand (ZAR) and are subject to change with reasonable notice</span></div>
+        </div>
+
+        <div class="promise">
+          <div class="brand-line">PropEye Property Inspections</div>
+          <div class="tagline">Professional Eyes. Trusted Reports. Complete Peace of Mind.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow on-dark">Contact PropEye</p>
+            <h2 class="section-title">Let's get started</h2>
+            <p class="section-lede">Reach out to book your inspection or request a quote.</p>
+          </div>
+          <ul class="contact-list">
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-mail"></use></svg><a href="mailto:info@propeye.co.za">info@propeye.co.za</a></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-phone"></use></svg><a href="tel:+27632519530">+27 63 251 9530</a></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-whatsapp"></use></svg><a href="https://wa.me/27632519530" rel="noopener">WhatsApp: +27 63 251 9530</a></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-clock"></use></svg><span>Mon–Sat 9am – 6pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="PropEye Property Inspections — home">
+            <img class="brand-logo" src="images/logo-160.webp" srcset="images/logo-160.webp 160w, images/logo-320.webp 320w" sizes="54px" width="160" height="102" alt="PropEye Logo" loading="lazy">
+            <span>
+              <span class="brand-name">Prop<span class="eye">Eye</span></span>
+              <span class="brand-sub">Property Inspections</span>
+            </span>
+          </a>
+          <p>Professional Eyes. Trusted Reports. Complete Peace of Mind.</p>
+        </div>
+        <div class="footer-column">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:info@propeye.co.za">info@propeye.co.za</a></li>
+            <li><a href="tel:+27632519530">+27 63 251 9530</a></li>
+            <li><a href="https://wa.me/27632519530" rel="noopener">WhatsApp</a></li>
+            <li><span>Mon–Sat 9am – 6pm</span></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2>Follow</h2>
+          <ul>
+            <li><a href="https://www.facebook.com/share/14cxHEFWzvn/" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PropEye · Property Inspections</span>
+        <a class="social" href="https://www.facebook.com/share/14cxHEFWzvn/" rel="noopener">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="images/icons.svg#icon-facebook"></use></svg>
+          Facebook
+        </a>
       </div>
     </div>
   </footer>
 
+  <script src="script.js" defer></script>
 </body>
 </html>
