@@ -4,3 +4,9 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# local visual-review artifacts
+preview-*.png
+desktop-final.png
+mobile-*.png
+full-*.png
