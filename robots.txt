@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://propeye.co.za/sitemap.xml
+Sitemap: https://www.propeye.co.za/sitemap.xml
